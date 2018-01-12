@@ -29,7 +29,7 @@ export class List extends PureComponent {
                     product={product}
                     addToCart={() => this.props.addToCart(product.id)}
                     removeFromCart={() => this.props.removeFromCart(product.id)}
-                    setProductAmount={() => this.props.setProductAmount(product.id)}
+                    setProductAmount={(amount) => this.props.setProductAmount(product.id, amount)}
                 />)}
             </Wrapper>
         );

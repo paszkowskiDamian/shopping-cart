@@ -14,4 +14,4 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const removeFromCart = id => ({ type: REMOVE_FROM_CART, payload: { id } })
 
 export const SET_PRODUCT_AMOUNT = 'SET_PRODUCT_AMOUNT'
-export const setProductAmount = id => ({ type: SET_PRODUCT_AMOUNT, payload: { id } })
+export const setProductAmount = (id, amount) => ({ type: SET_PRODUCT_AMOUNT, payload: { id, amount } })
