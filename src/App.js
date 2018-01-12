@@ -7,6 +7,8 @@ import { Receipt } from './components/Receipt'
 const Wrapper = glamorous.div({
   display: 'flex',
   width: '100%',
+  padding: '0 30px',
+  paddingTop: 20,
 })
 class App extends Component {
   render() {

@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 
 const Wrapper = glamorous.div({
     flex: 1,
-    minWidth: 200,
+    minWidth: 350,
 })
 
 @connect(mapStateToProps, undefined)

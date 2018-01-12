@@ -2,16 +2,29 @@ import glamorous from 'glamorous'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Wrapper = glamorous.div({
+import { colors } from '../styles/theme'
 
+const Wrapper = glamorous.div({
+    display: 'flex',
+    height: 30,
+    border: `1px solid ${colors.lightGray}`
 })
 
 const Button = glamorous.button({
-
+    cursor: 'pointer',
+    background: 'none',
+    width: 30,
+    height: '100%',
+    border: 'none',
+    '&:focus': {
+        outline: 'none',
+    }
 })
 
 const Input = glamorous.input({
-
+    width: 50,
+    border: 'none',
+    justifyContent: 'center',
 })
 
 export class ProductSelector extends React.PureComponent {

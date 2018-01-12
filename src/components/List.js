@@ -16,13 +16,13 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addToCart, removeFromCart, setProductAmount }, dispatch)
 
 const Wrapper = glamorous.ul({
-    flex: 4,
+    flex: 3,
     padding: 0,
+    margin: 0,
 })
 @connect(mapStateToProps, mapDispatchToProps)
 export class List extends PureComponent {
     render() {
-        console.log(this.props)
         return (
             <Wrapper>
                 {this.props.products.map(product => <ProductListElement
