@@ -1,7 +1,9 @@
 import { combineEpics } from 'redux-observable'
 
-export function discountEpic() {
-    const counterEpic = action$ => action$.ofType('ADD').do(a => console.log(a)).ignoreElements()
+import { discountsFulfilled } from '../actions/actions'
 
-    return combineEpics(counterEpic)
+export function discountEpic(discountRepository) {
+    const discount$ = () => discountRepository.getStream().map(discountsFulfilled)
+
+    return combineEpics(discount$)
 }

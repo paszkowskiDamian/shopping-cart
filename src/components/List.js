@@ -16,9 +16,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({ add }, dispatch)
 
 @connect(mapStateToProps, mapDispatchToProps)
 export class List extends PureComponent {
-
     render() {
-        console.log(this.props)
         return (
             <div>
                 List
