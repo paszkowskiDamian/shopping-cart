@@ -5,15 +5,18 @@ import { ADD_TO_CART, REMOVE_FROM_CART, SET_PRODUCT_AMOUNT } from '../actions/ac
 export function cart(state = {}, action) {
     switch (action.type) {
         case ADD_TO_CART:
-            const addTo = action.payload.id
-            return { ...state, [addTo]: state[addTo] ? state[addTo] + 1 : 1 }
+            const addToId = action.payload.id
+            return { ...state, [addToId]: state[addToId] ? state[addToId] + 1 : 1 }
         case REMOVE_FROM_CART:
-            const removeFrom = action.payload.id
-            return state[removeFrom] && state[removeFrom] > 1
-                ? { ...state, [removeFrom]: state[removeFrom] - 1 }
-                : _omit(state, removeFrom)
+            const removeFromId = action.payload.id
+            return state[removeFromId] && state[removeFromId] > 1
+                ? { ...state, [removeFromId]: state[removeFromId] - 1 }
+                : _omit(state, removeFromId)
         case SET_PRODUCT_AMOUNT:
-            return state
+            const updateId = action.payload.id
+            return action.payload.amount > 0
+                ? { ...state, [updateId]: Number(action.payload.amount) }
+                : _omit(state, updateId)
         default:
             return state
     }
