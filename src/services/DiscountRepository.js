@@ -4,15 +4,15 @@ export class DiscountRepository {
         console.log(this._db)
     }
 
-    getDiscountsStream() {
+    getStream() {
 
     }
 
-    addDiscount() {
+    add() {
 
     }
 
-    removeDescount() {
+    remove() {
 
     }
 

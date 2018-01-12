@@ -1,15 +1,6 @@
 import { combineReducers } from 'redux'
 
-import { ADD } from './actions/actions'
-
-function products(state = 0, action) {
-    switch (action.type) {
-        case ADD:
-            return state + 1
-        default:
-            return state
-    }
-}
+import { products } from './reducers/productsReducer'
 
 export const rootReducer = combineReducers({
     products

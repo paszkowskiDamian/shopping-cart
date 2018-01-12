@@ -1,7 +1,12 @@
 import { combineEpics } from 'redux-observable'
+import { reduce as _reduce } from 'lodash'
 
-export function productsEpic() {
-    const counterEpic = action$ => action$.ofType('ADD').do(a => console.log(a)).ignoreElements()
+import { ADD, productsFulfilled } from '../actions/actions'
 
-    return combineEpics(counterEpic)
+export function productsEpic(productRepository) {
+    const products$ = () => productRepository.getStream()
+        .map(products => _reduce(products, (acc, value, id) => ({ ...acc, [id]: { ...value, id } })))
+        .map(productsFulfilled)
+
+    return combineEpics(products$)
 }

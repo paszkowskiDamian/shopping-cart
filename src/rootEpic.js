@@ -1,9 +1,11 @@
 import { combineEpics } from 'redux-observable'
 
 import { productsEpic } from './epics/productsEpic'
+import { discountEpic } from './epics/discountEpic'
 import { identifiers } from './services/identifiers'
 import { container } from './container'
 
 export const rootEpic = combineEpics(
-    productsEpic(container.get(identifiers.PRODUCTS_REPOSITORY))
+    productsEpic(container.get(identifiers.PRODUCTS_REPOSITORY)),
+    discountEpic(container.get(identifiers.DISCOUNT_REPOSITORY))
 )
