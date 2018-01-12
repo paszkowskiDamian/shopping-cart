@@ -1,8 +1,6 @@
 import { createSelector } from 'reselect'
 import { reduce as _reduce, find as _find } from 'lodash'
 
-import { products } from '../reducers/productsReducer';
-
 const productSelector = state => state.products
 const discountSelector = state => state.discounts
 

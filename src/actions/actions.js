@@ -6,3 +6,12 @@ export const discountsFulfilled = (discounts) => ({ type: DISCOUNTS_FULFILLED, p
 
 export const ADD = 'ADD'
 export const add = () => ({ type: ADD })
+
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const addToCart = id => ({ type: ADD_TO_CART, payload: { id } })
+
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const removeFromCart = id => ({ type: REMOVE_FROM_CART, payload: { id } })
+
+export const SET_PRODUCT_AMOUNT = 'SET_PRODUCT_AMOUNT'
+export const setProductAmount = id => ({ type: SET_PRODUCT_AMOUNT, payload: { id } })

@@ -1,15 +1,20 @@
+import glamorous from 'glamorous'
 import React, { Component } from 'react';
 
 import { List } from './components/List'
+import { Receipt } from './components/Receipt'
 
+const Wrapper = glamorous.div({
+  display: 'flex',
+  width: '100%',
+})
 class App extends Component {
   render() {
     return (
-      <div>
-        <button onClick={this.props.add}>Add</button>
+      <Wrapper>
         <List />
-        {this.props.products}
-      </div>
+        <Receipt />
+      </Wrapper>
     );
   }
 }
