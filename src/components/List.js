@@ -22,6 +22,7 @@ const Wrapper = glamorous.ul({
 @connect(mapStateToProps, mapDispatchToProps)
 export class List extends PureComponent {
     render() {
+        console.log(this.props)
         return (
             <Wrapper>
                 {this.props.products.map(product => <ProductListElement

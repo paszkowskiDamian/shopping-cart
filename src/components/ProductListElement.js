@@ -26,6 +26,7 @@ export function ProductListElement(props) {
         <ListElement>
             <Label>{props.product.name}</Label>
             <Label>{props.product.price}</Label>
+            <Label>You have {props.product.inCartAmount}</Label>
             <ProductSelector
                 addToCart={props.addToCart}
                 removeFromCart={props.removeFromCart}
