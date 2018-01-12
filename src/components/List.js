@@ -1,18 +1,22 @@
+import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { add } from '../actions/actions'
+import { aggregatedProductsSelector } from '../selectors/aggregatedProductsSelector'
 
-const mapStateToProps = (state) => {
-    return state
-}
+import { ProductCollection } from '../models/Product'
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ add }, dispatch)
-}
+const mapStateToProps = (state) => ({
+    products: aggregatedProductsSelector(state)
+})
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({ add }, dispatch)
+
 @connect(mapStateToProps, mapDispatchToProps)
 export class List extends PureComponent {
+
     render() {
         console.log(this.props)
         return (
@@ -21,4 +25,8 @@ export class List extends PureComponent {
             </div>
         );
     }
+}
+
+List.propTypes = {
+    products: PropTypes.shape(ProductCollection)
 }
