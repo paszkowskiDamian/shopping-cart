@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable'
 
-import { SIGN_UP } from '../actions/actions'
+import { SIGN_UP, SIGN_OUT, authStateChanges } from '../actions/actions'
 
 export function authEpic(authService) {
     const signUpEpic = action$ => action$
@@ -10,7 +10,12 @@ export function authEpic(authService) {
 
     const authStreamEpic = _ => authService
         .authStream$()
-        .map(user => ({ type: 'AUTH', payload: { user } }))
+        .map(authStateChanges)
 
-    return combineEpics(signUpEpic, authStreamEpic)
+    const logOutEpic = action$ => action$
+        .ofType(SIGN_OUT)
+        .map(() => authService.signOut())
+        .ignoreElements()
+
+    return combineEpics(signUpEpic, authStreamEpic, logOutEpic)
 } 

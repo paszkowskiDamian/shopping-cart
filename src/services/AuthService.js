@@ -24,7 +24,6 @@ export class AuthService {
     }
 
     authStream$() {
-        console.log('registered')
         return Observable.create(observer => {
             this._auth.onAuthStateChanged(user => observer.next(user))
         })

@@ -1,7 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-export function Dashboard() {
-    return (
-        <div>Dashboard</div>
-    )
+import { singOut } from '../actions/actions'
+
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({ singOut }, dispatch)
+
+@connect(mapStateToProps, mapDispatchToProps)
+export class Dashboard extends React.Component {
+    render() {
+        console.log(this.props)
+        return (
+            <div onClick={this.props.singOut} >Dashboard</div>
+        )
+    }
 }
