@@ -8,5 +8,9 @@ export function authEpic(authService) {
         .do(action => authService.signUp(action.payload.email, action.payload.password))
         .ignoreElements()
 
-    return combineEpics()
+    const authStreamEpic = _ => authService
+        .authStream$()
+        .map(user => ({ type: 'AUTH', payload: { user } }))
+
+    return combineEpics(signUpEpic, authStreamEpic)
 } 

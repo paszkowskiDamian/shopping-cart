@@ -73,7 +73,6 @@ export class SignUpPage extends React.Component {
     handleInput = (type) => (event) => this.setState({ [type]: event.target.value })
 
     render() {
-        console.log(this.props)
         return (
             !this.props.auth.isLoggedIn
                 ? < Wrapper >
