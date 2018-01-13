@@ -1,23 +1,17 @@
 import glamorous from 'glamorous'
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Route } from 'react-router-dom'
 
-import { List } from './components/List'
-import { Receipt } from './components/Receipt'
+import { CartPage } from './pages/CartPage'
+import { Dashboard } from './pages/Dashboard'
 
-const Wrapper = glamorous.div({
-  display: 'flex',
-  boxSizing: 'border-box',
-  width: '100%',
-  padding: '0 30px',
-  paddingTop: 20,
-})
 class App extends Component {
   render() {
     return (
-      <Wrapper>
-        <List />
-        <Receipt />
-      </Wrapper>
+      <Fragment>
+        <Route exact path="/" component={CartPage} />
+        <Route path="/dashboard" component={Dashboard} />
+      </Fragment>
     );
   }
 }
