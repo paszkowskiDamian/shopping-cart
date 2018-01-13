@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 
 const mapStateToProps = state => ({
@@ -11,7 +11,6 @@ const mapStateToProps = state => ({
 export class PrivateRoute extends React.PureComponent {
     render() {
         const Component = this.props.component
-        console.log(this.props)
         return (
             <Route
                 path={this.props.path}

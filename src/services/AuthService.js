@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs'
-import { retry } from 'rxjs/operators/retry';
 export class AuthService {
     constructor(auth) {
         this._auth = auth
@@ -7,17 +6,15 @@ export class AuthService {
 
     signUp(email, password) {
         try {
-            console.log(email, password)
             this._auth.signInWithEmailAndPassword(email, password)
         } catch (err) {
             console.log(err)
         }
     }
 
-    async signOut() {
+    signOut() {
         try {
-            const response = await this._auth.signOut()
-            console.log(response)
+            this._auth.signOut()
         } catch (err) {
             console.log(err)
         }
@@ -28,5 +25,4 @@ export class AuthService {
             this._auth.onAuthStateChanged(user => observer.next(user))
         })
     }
-
 }
