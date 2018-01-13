@@ -21,8 +21,10 @@ export function ReceiptLine(props) {
         <Line>
             <DataWrapper flex="2" justifyContent="flex-start">{name}</DataWrapper>
             <DataWrapper>{inCartAmount}</DataWrapper>
+            <DataWrapper>x</DataWrapper>
             <DataWrapper>{price}</DataWrapper>
-            <DataWrapper>{(price * inCartAmount).toFixed(2)}</DataWrapper>
+            <DataWrapper flex="1">{(price * inCartAmount).toFixed(2)}</DataWrapper>
+            <DataWrapper flex="0">CHF</DataWrapper>
         </Line>
     )
 }

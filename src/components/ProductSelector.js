@@ -38,10 +38,8 @@ export class ProductSelector extends React.PureComponent {
 
     setEditState = () => this.setState(state => ({ isEditing: !state.isEditing }))
 
-    handleAmountUpdate = (event) => {
-        console.log(event)
-        this.setState({ value: event.target.value })
-    }
+    handleAmountUpdate = (event) => this.setState({ value: event.target.value })
+
 
     handleFocus = () => this.setState({ isEditing: true, value: this.props.inCartAmount })
 

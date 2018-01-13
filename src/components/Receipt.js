@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { ReceiptLine } from './ReceiptLine'
+import { Summary } from './Summary'
 import { aggregateCartSelector } from '../selectors/aggregateCartSelector'
 import { receiptSelector } from '../selectors/receiptSelector'
 import { Product } from '../models/Product'
@@ -32,18 +33,22 @@ const Header = glamorous.h2({
 })
 
 const List = glamorous.ul({
-    listStyle: 'none'
+    listStyle: 'none',
+    padding: 0,
 })
 @connect(mapStateToProps, undefined)
 export class Receipt extends PureComponent {
     render() {
         return (
-            <Wrapper>
-                <Header>Receipt</Header>
-                <List>
-                    {this.props.cart.map(product => <ReceiptLine key={product.id} product={product} />)}
-                </List>
-            </Wrapper>
+            <div>
+                <Wrapper>
+                    <Header>Receipt</Header>
+                    <List>
+                        {this.props.cart.map(product => <ReceiptLine key={product.id} product={product} />)}
+                    </List>
+                    {this.props.cart.length > 0 && <Summary {...this.props.receipt} />}
+                </Wrapper>
+            </div>
         );
     }
 }
@@ -51,5 +56,9 @@ export class Receipt extends PureComponent {
 Receipt.propTypes = {
     cart: PropTypes.arrayOf(
         PropTypes.shape(Product)
-    )
+    ),
+    receipt: PropTypes.shape({
+        basketPrice: PropTypes.number.isRequired,
+        withoutDiscount: PropTypes.number.isRequired,
+    })
 }
