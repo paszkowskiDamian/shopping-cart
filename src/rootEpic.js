@@ -7,5 +7,5 @@ import { container } from './container'
 
 export const rootEpic = combineEpics(
     productsEpic(container.get(identifiers.PRODUCTS_REPOSITORY)),
-    discountEpic(container.get(identifiers.DISCOUNT_REPOSITORY))
+    discountEpic(container.get(identifiers.DISCOUNT_REPOSITORY)),
 )

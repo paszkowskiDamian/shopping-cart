@@ -20,6 +20,9 @@ const ListElement = glamorous.li({
     listStyle: 'none',
     '&:first-of-type': {
         marginTop: 0,
+    },
+    '&:last-of-type': {
+        marginBottom: 0,
     }
 }, shadow)
 

@@ -6,6 +6,7 @@ import { Receipt } from './components/Receipt'
 
 const Wrapper = glamorous.div({
   display: 'flex',
+  boxSizing: 'border-box',
   width: '100%',
   padding: '0 30px',
   paddingTop: 20,

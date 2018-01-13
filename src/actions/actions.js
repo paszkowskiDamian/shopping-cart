@@ -15,3 +15,6 @@ export const removeFromCart = id => ({ type: REMOVE_FROM_CART, payload: { id } }
 
 export const SET_PRODUCT_AMOUNT = 'SET_PRODUCT_AMOUNT'
 export const setProductAmount = (id, amount) => ({ type: SET_PRODUCT_AMOUNT, payload: { id, amount } })
+
+export const UPDATE_RECEIPT = 'UPDATE_RECEIPT'
+export const updateReceipt = (totalPrice, afterDiscount, saved) => ({ type: UPDATE_RECEIPT, payload: { totalPrice, afterDiscount, saved } })
