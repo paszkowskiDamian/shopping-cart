@@ -91,7 +91,9 @@ export class SignUpPage extends React.Component {
                         </Form>
                     </LoginForm>
                 </Wrapper >
-                : <Redirect to="/dashboard" />
+                : <Redirect to={{
+                    pathname: '/dashboard'
+                }} />
         )
     }
 }

@@ -8,6 +8,7 @@ import { Summary } from './Summary'
 import { aggregateCartSelector } from '../selectors/aggregateCartSelector'
 import { receiptSelector } from '../selectors/receiptSelector'
 import { Product } from '../models/Product'
+import { CallToAction } from './CallToAction'
 
 import { colors } from '../styles/theme'
 import { shadow } from '../styles/shared'
@@ -46,7 +47,7 @@ export class Receipt extends PureComponent {
                     <List>
                         {this.props.cart.map(product => <ReceiptLine key={product.id} product={product} />)}
                     </List>
-                    {this.props.cart.length > 0 && <Summary {...this.props.receipt} />}
+                    {this.props.cart.length > 0 ? <Summary {...this.props.receipt} /> : <CallToAction />}
                 </Wrapper>
             </div>
         );

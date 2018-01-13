@@ -5,33 +5,7 @@ import PropTypes from 'prop-types'
 import { ProductSelector } from './ProductSelector'
 import { Product } from '../models/Product'
 import { parsePrice, parseDiscount } from '../helpers/discountParser'
-
-import { colors } from '../styles/theme'
-import { shadow } from '../styles/shared'
-
-const ListElement = glamorous.li({
-    display: 'flex',
-    justifyContent: 'space-between',
-    boxSizing: 'border-box',
-    width: '100%',
-    background: colors.cardColor,
-    padding: 20,
-    margin: '10px 0',
-    listStyle: 'none',
-    '&:first-of-type': {
-        marginTop: 0,
-    },
-    '&:last-of-type': {
-        marginBottom: 0,
-    }
-}, shadow)
-
-const Label = glamorous.div(props => ({
-    flex: 1,
-    display: 'flex',
-    justifyContent: props.position ? props.position : 'center',
-    alignItems: 'center',
-}))
+import { ListElement, Label } from './ListComponents'
 
 const Discount = glamorous(Label)({
     fontWeight: 300

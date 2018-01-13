@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
+
 
 import { CartPage } from './pages/CartPage'
 import { Dashboard } from './pages/Dashboard'
