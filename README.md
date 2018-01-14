@@ -41,3 +41,8 @@ or
 ```
 yarn test
 ```
+
+## TODO
+
+- handle errors
+- allow user change name and price of existing products
