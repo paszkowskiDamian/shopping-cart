@@ -25,8 +25,8 @@ export function Summary(props) {
         <Wrapper>
             <Title>Summary</Title>
             <Amount>
-                {(props.basketPrice !== props.withoutDiscount) && <del>{props.basketPrice}CHF</del>}
-                <div>{props.withoutDiscount}CHF</div>
+                {(props.basketPrice !== props.withoutDiscount) && <del>{props.withoutDiscount}CHF</del>}
+                <div>{props.basketPrice}CHF</div>
             </Amount>
         </Wrapper>
     )
