@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable'
 
-import { SIGN_UP, SIGN_OUT, authStateChanges } from '../actions/actions'
+import { SIGN_UP, SIGN_OUT, authStateChanges } from '../actions/authActions'
 
 export function authEpic(authService) {
     const signUpEpic = action$ => action$

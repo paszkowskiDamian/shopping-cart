@@ -1,4 +1,4 @@
-import { AUTH_STATE_CHANGED } from '../actions/actions'
+import { AUTH_STATE_CHANGED } from '../actions/authActions'
 
 const initialState = {
     isLoggedIn: false,

@@ -32,3 +32,14 @@ export const Label = glamorous.div(props => ({
     justifyContent: props.position ? props.position : 'center',
     alignItems: 'center',
 }))
+
+export const InputLabel = glamorous.input({
+    background: 'none',
+    border: `1px solid ${colors.lightGray}`,
+    marginRight: 30,
+    padding: 5,
+    '&:focus': {
+        background: 'white',
+        outline: 'none',
+    }
+})

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Redirect } from 'react-router-dom';
 
-import { signUp } from '../actions/actions'
+import { signUp } from '../actions/authActions'
 
 import { colors } from '../styles/theme'
 import { shadow } from '../styles/shared'

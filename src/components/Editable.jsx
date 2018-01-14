@@ -9,20 +9,19 @@ export const Editable = (Component) => class extends React.Component {
         }
     }
 
-    handleChange = (event) => this.setState({ value: Number(event.target.value) })
-
+    handleChange = (event) => this.setState({ value: event.target.value })
 
     handleFocus = () => this.setState({ isEditing: true, value: this.props.value })
 
     handleBlur = () => {
         this.setState({ isEditing: false })
-        this.props.updateAction(this.state.value)
+        this.props.updateAction && this.props.updateAction(this.state.value)
     }
 
     render() {
         return <Component
             {...this.props}
-            value={this.state.isEditing ? this.state.value : this.props.value}
+            value={this.state.isEditing && this.props.value !== undefined ? this.state.value : this.props.value}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             onChange={this.handleChange}

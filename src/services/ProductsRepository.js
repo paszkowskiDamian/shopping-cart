@@ -8,12 +8,12 @@ export class ProductsRepository {
         return Observable.fromEvent(this._db, 'value').map(res => res.val())
     }
 
-    add() {
-        this._db.push({ name: 'Mango', price: 23 })
+    add(name, price) {
+        this._db.push({ name, price: Number(price) })
     }
 
-    remove() {
-
+    delete(id) {
+        this._db.child(id).remove()
     }
 
 }
