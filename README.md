@@ -10,8 +10,34 @@ This project is simple shopping cart application integrated with firebase.
 
 ## Running application
 
-## Deploy
+To run application locally clone or download repository. Open directory and run 
+```
+npm run start
+```
+
+or 
+
+```
+npm yarn start
+```
+## Live demo
+
+Application is hosted on firebase. Live demo can be viewed at [DEMO](https://shopping-cart-ea197.firebaseapp.com/)
+```
+https://shopping-cart-ea197.firebaseapp.com/
+```
 
 ## Login to admin panel
 
+There is dashboard available where you can add/remove products and discounts. [LOGIN PAGE](https://shopping-cart-ea197.firebaseapp.com/login)
 ## Running tests
+
+To run test 
+
+```
+npm run test 
+```
+or 
+```
+yarn test
+```
