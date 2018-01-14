@@ -22,6 +22,7 @@ export function ProductManager(props) {
                     deleteProduct={() => props.deleteProduct(product.id)}
                     updatePrice={(price) => props.updatePrice(product.id, price)}
                     addDiscount={(buy, pay) => props.addDiscount(product.id, buy, pay)}
+                    deleteDiscount={props.deleteDiscount}
                 />)}
                 <AddNewProduct addNewProduct={props.addNewProduct} />
             </ListWrapper>
@@ -35,5 +36,6 @@ ProductManager.propTypes = {
     updateName: PropTypes.func.isRequired,
     updatePrice: PropTypes.func.isRequired,
     addDiscount: PropTypes.func.isRequired,
+    deleteDiscount: PropTypes.func.isRequired,
 }
 

@@ -2,7 +2,7 @@ import { combineEpics } from 'redux-observable'
 import { find as _find, reduce as _reduce } from 'lodash'
 
 import { discountsFulfilled } from '../actions/actions'
-import { DELETE_PRODUCT, ADD_DISCOUNT } from '../actions/updateDataActions'
+import { DELETE_PRODUCT, ADD_DISCOUNT, DELETE_DISCOUNT } from '../actions/updateDataActions'
 
 export function discountEpic(discountRepository) {
     const discount$ = () => discountRepository.getStream().map(discountsFulfilled)
@@ -19,5 +19,10 @@ export function discountEpic(discountRepository) {
         .do(({ payload }) => discountRepository.add(payload.productId, payload.buy, payload.pay))
         .ignoreElements()
 
-    return combineEpics(discount$, clearDiscountEpic, addDiscountEpic)
+    const deleteDiscount = action$ => action$
+        .ofType(DELETE_DISCOUNT)
+        .do(({ payload }) => discountRepository.delete(payload.id))
+        .ignoreElements()
+
+    return combineEpics(discount$, clearDiscountEpic, addDiscountEpic, deleteDiscount)
 }

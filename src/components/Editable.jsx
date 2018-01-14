@@ -24,7 +24,6 @@ export const Editable = (Component) => class extends React.Component {
             value={this.state.isEditing && this.props.value !== undefined ? this.state.value : this.props.value}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            onKeyDown={({ keyCode }) => console.log(keyCode)}
             onChange={this.handleChange}
         />
     }

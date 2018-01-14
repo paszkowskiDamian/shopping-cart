@@ -7,7 +7,14 @@ import { singOut } from '../actions/authActions'
 import { aggregatedProductsSelector } from '../selectors/aggregatedProductsSelector'
 import { ProductManager } from '../components/ProductManager'
 
-import { addNewProduct, deleteProduct, updateName, updatePrice, addDiscount } from '../actions/updateDataActions'
+import {
+    addNewProduct,
+    deleteProduct,
+    updateName,
+    updatePrice,
+    addDiscount,
+    deleteDiscount
+} from '../actions/updateDataActions'
 
 const mapStateToProps = state => ({
     products: aggregatedProductsSelector(state)
@@ -20,6 +27,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     updateName,
     updatePrice,
     addDiscount,
+    deleteDiscount
 }, dispatch)
 
 const Wrapper = glamorous.div({
@@ -36,7 +44,8 @@ export class Dashboard extends React.Component {
                     deleteProduct={this.props.deleteProduct}
                     updateName={this.props.updateName}
                     updatePrice={this.props.updatePrice}
-                    addDiscount={this.props.addDiscount} />
+                    addDiscount={this.props.addDiscount}
+                    deleteDiscount={this.props.deleteDiscount} />
             </Wrapper>
         )
     }

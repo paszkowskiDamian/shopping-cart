@@ -8,21 +8,36 @@ import { Editable } from './Editable'
 
 const EditableLabel = Editable(InputLabel)
 
+const DiscountLabel = glamorous(Label)({
+    position: 'relative',
+    '& > button': {
+        visibility: 'hidden'
+    },
+    '&:hover > button': {
+        visibility: 'visible'
+    }
+})
+
 const Delete = glamorous.button({
     background: 'none',
     cursor: 'pointer',
 })
 
-export class EditableListElement extends React.PureComponent {
-    render() {
-        return (
-            <ListElement>
-                <EditableLabel value={this.props.product.name} />
-                <EditableLabel value={this.props.product.price} />
-                {this.props.product.discount
-                    ? <Label>{parseDiscount(this.props.product.discount)}</Label>
-                    : <AddDiscount addDiscount={this.props.addDiscount} />}
-                <Delete onClick={this.props.deleteProduct}>Delete</Delete>
-            </ListElement>)
-    }
+const DeleteDiscount = glamorous(Delete)({
+    marginLeft: 10,
+    position: 'absolute',
+})
+export function EditableListElement(props) {
+    return (
+        <ListElement>
+            <EditableLabel value={props.product.name} />
+            <EditableLabel value={props.product.price} />
+            {props.product.discount
+                ? <DiscountLabel>
+                    {parseDiscount(props.product.discount)}
+                    <DeleteDiscount onClick={() => props.deleteDiscount(props.product.discount.id)} >X</DeleteDiscount>
+                </DiscountLabel>
+                : <AddDiscount addDiscount={props.addDiscount} />}
+            <Delete onClick={props.deleteProduct}>Delete</Delete>
+        </ListElement>)
 }

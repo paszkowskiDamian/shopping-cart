@@ -9,12 +9,10 @@ export class DiscountRepository {
     }
 
     add(id, buy, pay) {
-        console.log(id, buy, pay)
         this._db.push({ buy, pay, productId: id })
     }
 
     delete(id) {
-        console.log(id)
         this._db.child(id).remove()
     }
 

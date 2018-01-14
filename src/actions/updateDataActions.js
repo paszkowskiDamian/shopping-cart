@@ -12,3 +12,6 @@ export const updatePrice = (id, price) => ({ type: UPDATE_PRICE, payload: { id, 
 
 export const ADD_DISCOUNT = 'ADD_DISCOUNT'
 export const addDiscount = (productId, buy, pay) => ({ type: ADD_DISCOUNT, payload: { productId, buy, pay } })
+
+export const DELETE_DISCOUNT = 'DELETE_DISCOUNT'
+export const deleteDiscount = id => ({ type: DELETE_DISCOUNT, payload: { id } })
