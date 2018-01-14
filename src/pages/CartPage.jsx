@@ -1,6 +1,7 @@
 import glamorous from 'glamorous'
 import React from 'react';
 
+
 import { List } from '../components/List'
 import { Receipt } from '../components/Receipt'
 

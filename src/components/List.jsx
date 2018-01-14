@@ -8,9 +8,9 @@ import { aggregatedProductsSelector } from '../selectors/aggregatedProductsSelec
 import { ProductCollection } from '../models/Product'
 import { ProductListElement } from './ProductListElement'
 import { ListWrapper } from './ListComponents'
-
 const mapStateToProps = (state) => ({
-    products: aggregatedProductsSelector(state)
+    products: aggregatedProductsSelector(state),
+    auth: state.auth
 })
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ addToCart, removeFromCart, setProductAmount }, dispatch)
@@ -19,15 +19,17 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({ addToCart, removeF
 export class List extends PureComponent {
     render() {
         return (
-            <ListWrapper>
-                {this.props.products.map(product => <ProductListElement
-                    key={product.id}
-                    product={product}
-                    addToCart={() => this.props.addToCart(product.id)}
-                    removeFromCart={() => this.props.removeFromCart(product.id)}
-                    setProductAmount={(amount) => this.props.setProductAmount(product.id, amount)}
-                />)}
-            </ListWrapper>
+            <React.Fragment >
+                <ListWrapper>
+                    {this.props.products.map(product => <ProductListElement
+                        key={product.id}
+                        product={product}
+                        addToCart={() => this.props.addToCart(product.id)}
+                        removeFromCart={() => this.props.removeFromCart(product.id)}
+                        setProductAmount={(amount) => this.props.setProductAmount(product.id, amount)}
+                    />)}
+                </ListWrapper>
+            </React.Fragment >
         );
     }
 }

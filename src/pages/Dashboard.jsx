@@ -3,7 +3,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { singOut } from '../actions/authActions'
 import { aggregatedProductsSelector } from '../selectors/aggregatedProductsSelector'
 import { ProductManager } from '../components/ProductManager'
 
@@ -13,15 +12,16 @@ import {
     updateName,
     updatePrice,
     addDiscount,
-    deleteDiscount
+    deleteDiscount,
 } from '../actions/updateDataActions'
+import { signOut } from '../actions/authActions'
 
 const mapStateToProps = state => ({
     products: aggregatedProductsSelector(state)
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    singOut,
+    signOut,
     addNewProduct,
     deleteProduct,
     updateName,
@@ -33,6 +33,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 const Wrapper = glamorous.div({
     margin: '0 30px'
 })
+
 @connect(mapStateToProps, mapDispatchToProps)
 export class Dashboard extends React.Component {
     render() {
