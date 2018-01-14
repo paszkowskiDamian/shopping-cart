@@ -8,12 +8,14 @@ export class DiscountRepository {
         return Observable.fromEvent(this._db, 'value').map(res => res.val())
     }
 
-    add() {
-        this._db.push({ buy: 2, pay: 1, productId: 'product' })
+    add(id, buy, pay) {
+        console.log(id, buy, pay)
+        this._db.push({ buy, pay, productId: id })
     }
 
-    remove() {
-
+    delete(id) {
+        console.log(id)
+        this._db.child(id).remove()
     }
 
 }

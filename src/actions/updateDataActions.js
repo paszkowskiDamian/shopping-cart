@@ -9,3 +9,6 @@ export const updateName = (id, name) => ({ type: UPDATE_NAME, payload: { id, nam
 
 export const UPDATE_PRICE = 'UPDATE_PRICE'
 export const updatePrice = (id, price) => ({ type: UPDATE_PRICE, payload: { id, price } })
+
+export const ADD_DISCOUNT = 'ADD_DISCOUNT'
+export const addDiscount = (productId, buy, pay) => ({ type: ADD_DISCOUNT, payload: { productId, buy, pay } })
