@@ -1,6 +1,6 @@
 import glamorous from 'glamorous'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -34,10 +34,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({ signOut }, dispatch)
 
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 export class Navigation extends React.Component {
     render() {
-        const button = window.location.pathname === "/"
+        const button = this.props.location.pathname === "/"
             ? {
                 url: '/dashboard',
                 verbose: 'Dashboard'

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
+import { BrowserRouter as Router, } from 'react-router-dom'
 
 import { CartPage } from './pages/CartPage'
 import { Dashboard } from './pages/Dashboard'
@@ -10,12 +11,14 @@ import { Navigation } from './components/Navigation'
 class App extends Component {
   render() {
     return (
-      <Fragment>
-        <Navigation signOut={this.props.signOut} />
-        <Route exact path="/" component={CartPage} />
-        <Route path="/login" component={SignUpPage} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Route render={props => <Navigation {...props} />} />
+          <Route exact path="/" component={CartPage} />
+          <Route path="/login" component={SignUpPage} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+        </Fragment>
+      </Router>
     );
   }
 }

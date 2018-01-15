@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, } from 'react-router-dom'
+
 
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/ignoreElements'
@@ -16,11 +16,9 @@ import 'normalize.css'
 import './styles/global.scss'
 
 ReactDOM.render(
-    <Router>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </Router>,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('root'))
 
 registerServiceWorker()
